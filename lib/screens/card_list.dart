@@ -24,52 +24,60 @@ class CardList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3, // Nombre de colonnes
-        crossAxisSpacing: 10, // Espacement entre les colonnes
-        mainAxisSpacing: 10, // Espacement entre les lignes
-        childAspectRatio: 1, // Proportion entre largeur et hauteur
-      ),
-      itemCount: dashboardItems.length, // Nombre d'éléments dans la grille
-      itemBuilder: (context, index) {
-        return Container(
-          color: Colors.blueAccent,
-          child: Card(
-            elevation: 10.0,
-            child: Container(
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return  Padding(
+      padding: const EdgeInsets.all(8.0),
+      child:  Container(
+        height: 800.0,
+        width:400,
+        child: GridView.builder(
+          gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3, // Nombre de colonnes
+            crossAxisSpacing: 10, // Espacement entre les colonnes
+            mainAxisSpacing: 10, // Espacement entre les lignes
+            childAspectRatio: 1, // Proportion entre largeur et hauteur
+          ),
+          itemCount: dashboardItems.length, // Nombre d'éléments dans la grille
+          itemBuilder: (context, index) {
+            return Container(
+              width:100,
+              color: Colors.blueAccent,
+              child: Card(
+                elevation: 10.0,
+                child: Container(
+                  child: Column(
                     children: [
                       Row(
-
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(Icons.people),
-                          Text(
-                            '${dashboardItems[index].title}',
-                            style: TextStyle(color: Colors.black),
+                          Row(
+        
+                            children: [
+                              Icon(Icons.people),
+                              Text(
+                                '${dashboardItems[index].title}',
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            ],
                           ),
+                          Icon(Icons.more_vert)
                         ],
                       ),
-                      Icon(Icons.more_vert)
+                      Text(
+                        '${dashboardItems[index].number}',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      Text(
+                        'Pourcentage en baisse !',
+                        style: TextStyle(color: dashboardItems[index].color),
+                      ),
                     ],
                   ),
-                  Text(
-                    '${dashboardItems[index].number}',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  Text(
-                    'Pourcentage en baisse !',
-                    style: TextStyle(color: dashboardItems[index].color),
-                  ),
-                ],
+                ),
               ),
-            ),
-          ),
-        );
-      },
+            );
+          },
+        ),
+      ),
     );
   }
 }
