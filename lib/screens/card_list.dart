@@ -26,11 +26,11 @@ class CardList extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Padding(
       padding: const EdgeInsets.all(8.0),
-      child:  Container(
+      child:  SizedBox(
         height: 800.0,
         width:400,
         child: GridView.builder(
-          gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3, // Nombre de colonnes
             crossAxisSpacing: 10, // Espacement entre les colonnes
             mainAxisSpacing: 10, // Espacement entre les lignes
@@ -52,19 +52,19 @@ class CardList extends StatelessWidget {
                           Row(
         
                             children: [
-                              Icon(Icons.people),
+                              const Icon(Icons.people),
                               Text(
-                                '${dashboardItems[index].title}',
-                                style: TextStyle(color: Colors.black),
+                                dashboardItems[index].title,
+                                style: const TextStyle(color: Colors.black),
                               ),
                             ],
                           ),
-                          Icon(Icons.more_vert)
+                          const Icon(Icons.more_vert)
                         ],
                       ),
                       Text(
                         '${dashboardItems[index].number}',
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                       ),
                       Text(
                         'Pourcentage en baisse !',

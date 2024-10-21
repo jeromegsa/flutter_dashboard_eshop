@@ -5,6 +5,8 @@ import "package:flutter_dashboard_eshop/models/contry.dart";
 import 'package:http/http.dart' as http;
 
 class CountriesList extends StatefulWidget {
+  const CountriesList({super.key});
+
   @override
   _CountriesListState createState() => _CountriesListState();
 }
